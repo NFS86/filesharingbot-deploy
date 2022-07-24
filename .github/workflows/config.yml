@@ -2,7 +2,6 @@ name: Bot Deploy
 
 on:
   workflow_dispatch:
-  push:
     branches:
       - main
 
@@ -56,7 +55,7 @@ jobs:
         run: |
           cd && cd /app
           python3 -m VCPlayBot &
-          sleep 300m
+          sleep 2m
 
       - name: Run pg_dump
         uses: tj-actions/pg-dump@v2.3
