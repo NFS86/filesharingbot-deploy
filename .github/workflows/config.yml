@@ -13,20 +13,11 @@ jobs:
     container: anggit86/musicbot:latest
 
     services:
-      postgres:
-        image: postgres:9.6.20
-        env:
-          POSTGRES_DB: nfs-musicbot
-          POSTGRES_PASSWORD: bebas
-          POSTGRES_PORT: 5432
-          POSTGRES_USER: nfs86
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+      image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: nfs86
+      MONGO_INITDB_ROOT_PASSWORD: musicbot
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017
 
     steps:
       - name: Checkout
