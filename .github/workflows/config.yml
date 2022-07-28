@@ -1,6 +1,7 @@
 name: Bot Deploy
 
 on:
+  push:
   workflow_dispatch:
     branches:
       - main
@@ -22,8 +23,7 @@ jobs:
         run: |
           git config --global user.email jarbull86@gmail.com
           git config --global user.name NFS86
-          cd
-          git https://github.com/NFS86/RadioPlayerV3 /RadioPlayerV3
+          cd && git clone https://github.com/NFS86/RadioPlayerV3 /RadioPlayerV3
           cd && cd /RadioPlayerV3
           curl $CONFIG_FILE_URL -o config.env
         env:
