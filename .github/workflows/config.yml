@@ -16,9 +16,9 @@ jobs:
       ongodb:
         image: mongo
         env:
-          MONGO_INITDB_ROOT_USERNAME: test
-          MONGO_INITDB_ROOT_PASSWORD: password
-          MONGO_INITDB_DATABASE: test
+          MONGO_INITDB_ROOT_USERNAME: nfs86
+          MONGO_INITDB_ROOT_PASSWORD: musicbot
+          MONGO_INITDB_DATABASE: mongodb://nfs86:musicbot@mongo:27017
         options: >-
           --health-cmd mongo
           --health-interval 10s
