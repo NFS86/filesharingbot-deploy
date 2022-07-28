@@ -1,6 +1,7 @@
 name: Bot Deploy
 
 on:
+  push:
   workflow_dispatch:
     branches:
       - main
@@ -10,6 +11,22 @@ jobs:
     name: NFS-MusicBot
     runs-on: ubuntu-latest
     container: anggit86/musicbot:latest
+
+    services:
+      postgres:
+        image: postgres:9.6.20
+        env:
+          POSTGRES_DB: nfs-musicbot
+          POSTGRES_PASSWORD: bebas
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: nfs86
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout
