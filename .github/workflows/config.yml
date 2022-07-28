@@ -12,21 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     container: anggit86/musicbot:latest
 
-    services:
-      ongodb:
-        image: mongo
-        env:
-          MONGO_INITDB_ROOT_USERNAME: nfs86
-          MONGO_INITDB_ROOT_PASSWORD: musicbot
-          MONGO_INITDB_DATABASE: mongodb://nfs86:musicbot@mongo:27017
-        options: >-
-          --health-cmd mongo
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 27017:27017
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
