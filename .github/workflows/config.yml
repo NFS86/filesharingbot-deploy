@@ -14,10 +14,12 @@ jobs:
 
     services:
       image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: nfs86
-      MONGO_INITDB_ROOT_PASSWORD: musicbot
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017
+      ports:
+        - 27017:27017
+      env:
+        MONGO_INITDB_ROOT_USERNAME: nfs86
+        MONGO_INITDB_ROOT_PASSWORD: musicbot
+        ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017
 
     steps:
       - name: Checkout
