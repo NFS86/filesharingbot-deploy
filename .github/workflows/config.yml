@@ -23,7 +23,7 @@ jobs:
         run: |
           git config --global user.email jarbull86@gmail.com
           git config --global user.name NFS86
-          cd && git clone https://github.com/NFS86/PrimeMusic NFS-MusicBot
+          git clone https://github.com/NFS86/PrimeMusic NFS-MusicBot
           cd NFS-MusicBot
           curl $CONFIG_FILE_URL -o .env
         env:
