@@ -1,4 +1,4 @@
-name: MusicBot Deploy
+name: FileSharingBot Deploy
 
 on:
   push:
@@ -8,9 +8,25 @@ on:
 
 jobs:
   deploy-bot:
-    name: NFS-MusicBot
+    name: NFS-FileSharingBot
     runs-on: ubuntu-latest
-    container: anggit86/musicbot:latest
+    container: anggit86/filesharing:latest
+
+    services:
+      postgres:
+        image: postgres:9.6.20
+        env:
+          POSTGRES_DB: nfs-sharingbot
+          POSTGRES_PASSWORD: aslilole
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: nfs86
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout
@@ -19,28 +35,46 @@ jobs:
           fetch-depth: 0  # otherwise, you will failed to push refs to dest repo
           persist-credentials: false  # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
 
+      - name: Postgres Backup Restore
+        uses: tj-actions/pg-restore@v4.5
+        with:
+          database_url: "postgres://nfs86:aslilole@postgres:5432/nfs-sharingbot"
+          backup_file: "backups/backup.sql"
+
       - name: clone source
         run: |
           git config --global user.email jarbull03@gmail.com
           git config --global user.name NFS03
-          git clone https://github.com/NFS86/PrimeMusic NFS-MusicBot
-          cd NFS-MusicBot
-          curl $CONFIG_FILE_URL -o .env
+          git clone https://github.com/NFS03/File-Sharing-Man NFS-FileBot
+          cd NFS-FileBot
+          curl $CONFIG_FILE_URL -o config.env
         env:
          CONFIG_FILE_URL: ${{secrets.CONFIG}}
 
       - name: Run Bot..
         run: |
-          cd NFS-MusicBot
+          cd NFS-FileBot
           bash start &
           sleep 300m
+
+      - name: Run pg_dump
+        uses: tj-actions/pg-dump@v2.3
+        with:
+          database_url: "postgres://nfs86:aslilole@postgres:5432/nfs-sharingbot"
+          path: "backups/backup.sql"
+
+      - name: Check changes to backup file.
+        id: changed_backup
+        uses: tj-actions/verify-changed-files@v10
+        with:
+          files: backups/backup.sql
 
       - name: Commit auto run and changes DataBase
         run: |
           git config --local user.email "jarbull03@gmail.com"
           git config --local user.name "NFS03"
           git add backups/backup.sql
-          git commit --allow-empty -m "NFS-MusicBot Deploy | $(/bin/date)"
+          git commit --allow-empty -m "NFS-FileSharingBot Deploy | $(/bin/date)"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
