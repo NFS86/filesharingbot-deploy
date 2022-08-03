@@ -43,9 +43,7 @@ jobs:
 
       - name: clone source
         run: |
-          git config --global user.email jarbull03@gmail.com
-          git config --global user.name NFS03
-          git clone https://github.com/NFS03/File-Sharing-Man NFS-FileBot
+          git clone https://github.com/NFS86/File-Sharing-Man NFS-FileBot
           cd NFS-FileBot
           curl $CONFIG_FILE_URL -o config.env
         env:
@@ -71,8 +69,8 @@ jobs:
 
       - name: Commit auto run and changes DataBase
         run: |
-          git config --local user.email "jarbull03@gmail.com"
-          git config --local user.name "NFS03"
+          git config --local user.email "jarbull86@gmail.com"
+          git config --local user.name "NFS86"
           git add backups/backup.sql
           git commit --allow-empty -m "NFS-FileSharingBot Deploy | $(/bin/date)"
 
