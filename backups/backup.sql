@@ -39,6 +39,17 @@ COPY public.broadcast (id, user_name) FROM stdin;
 992305042	@mobxprjkt
 582339444	@Yogyess0
 1004401454	@N_mans
+1329765235	@Bl00dedge
+1674898916	@rayrzy
+765112589	@forbidden_boy
+5550687440	@akiioii
+5457398098	@Bocut98
+1918979885	@Kaguppon
+1737190612	\N
+345523973	@Reddyyyyy
+5202346339	@Xuu_Yen
+5501425113	\N
+576150516	@Vansai
 \.
 
 
