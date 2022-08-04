@@ -53,6 +53,7 @@ COPY public.broadcast (id, user_name) FROM stdin;
 1991686153	@key6a
 5419488229	@FGX502
 1196598965	@tkl_encode
+1840497078	@Fin_choir
 \.
 
 
