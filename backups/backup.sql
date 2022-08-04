@@ -50,6 +50,9 @@ COPY public.broadcast (id, user_name) FROM stdin;
 5202346339	@Xuu_Yen
 5501425113	\N
 576150516	@Vansai
+1991686153	@key6a
+5419488229	@FGX502
+1196598965	@tkl_encode
 \.
 
 
