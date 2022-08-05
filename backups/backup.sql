@@ -59,6 +59,11 @@ COPY public.broadcast (id, user_name) FROM stdin;
 1828174868	@lawwwwwwwwwwwwwwwwwwwwwwwwww
 1225468404	@ign_bijoy
 973924344	@r15unygm404
+961227831	@zoehe_86
+510925070	@azaazeel
+1514718892	@sayasiapahehehe
+681051416	@PPaulana
+5139108406	@JaiShreeRam_Uxtrom
 \.
 
 
