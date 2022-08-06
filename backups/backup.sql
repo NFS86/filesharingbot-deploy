@@ -67,6 +67,7 @@ COPY public.broadcast (id, user_name) FROM stdin;
 1605435172	@Zeeeeeeennnnnn
 1485489113	@Yuzuruuuuuuuuu
 1050664662	@d_reell
+1962813699	@LordBuchen
 \.
 
 
