@@ -72,6 +72,9 @@ COPY public.broadcast (id, user_name) FROM stdin;
 5446244375	@Ghie193
 1699991066	@Thestar37
 978253235	@vprayoga
+1883560635	@DonaldspasiBebekfake
+561090990	@abankdonny
+1367170001	@MRTCAMELIAN
 \.
 
 
