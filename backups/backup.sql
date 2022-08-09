@@ -76,6 +76,9 @@ COPY public.broadcast (id, user_name) FROM stdin;
 561090990	@abankdonny
 1367170001	@MRTCAMELIAN
 5368059234	@RasyidKautsar
+562644982	@indramuharam
+1355444488	@JoyKukreja
+782932314	@anangaw23
 \.
 
 
