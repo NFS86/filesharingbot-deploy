@@ -81,6 +81,7 @@ COPY public.broadcast (id, user_name) FROM stdin;
 782932314	@anangaw23
 781688943	@aitoxtea
 5049877858	@mrizkyubaidillah
+1908549138	@BreathLGDYT
 \.
 
 
